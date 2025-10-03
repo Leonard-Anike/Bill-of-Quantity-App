@@ -26,6 +26,22 @@ h1 {
 
 /* Displayed Table Section */
 
+.quotation-container-text {
+    /* display: flex; */
+    margin: 35vh auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 8rem);
+    font-size: 1.5rem;  /* 20px */
+    color: #8f8f92;
+}
+
+.quotation-container-text span {
+    display: block;
+    font-size: 1.1rem;  /* 14px */
+    margin-top: 0.5rem;
+}
 .quotation-area {
     background-repeat: no-repeat;
     background-size: 100% ;

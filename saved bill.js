@@ -11,7 +11,7 @@ function displayQuotation() {
     viewModeContainer.innerHTML = "";
 
     if (savedQuotation.length === 0) {
-        viewModeContainer.innerHTML = "<p> No quotation found.</p>";
+        viewModeContainer.innerHTML = "<p> No bill of quantity found.</p>";
         return;
     }
 
