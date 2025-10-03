@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css styling -->
+    <link rel="stylesheet" href="new bill.css">
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&
+    family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <title> New Bill  </title>
+</head>
+<body>
+    <main>
+        <!-- Header section -->
+        <header>
+            <h1> New Bill </h1>
+        </header>
+
+        <section id="quotation-container"></section>
+
+        <!-- Inputs section  -->
+        <div class="input-field">
+            <div class="quotation">
+                <div class="client-name-wrapper">
+                    <div class="client-input-name">
+                        <label for="client-input-name" > Client Name: </label>
+                        <!-- <input type="text" id="client-input-name" placeholder="Mr. Emmanuel"/> -->
+
+                        <textarea 
+                                id="client-input-name" 
+                                rows="2" 
+                                cols="25"
+                                placeholder="BILL OF QUANTITY FOR MR. EMMANUEL..."></textarea> 
+
+                    </div>
+                </div>
+                <div class="input-quotation">
+                    <div class="input-group">
+                        <label for="material-quantity">Item Quantity: </label>
+                        <input type="text" pattern="[a-zA-Z0-9]+" id="item-quantity" placeholder="100"/>
+                    </div>
+                    <div class="input-group">
+                        <label for="unit-price"> Unit Price: </label>
+                        <input type="number" id="unit-price" placeholder="3500"/>
+                    </div>
+                </div> 
+                <div class="textarea-quotation">
+                    <div class="textarea-wrapper">
+                        <label for="textarea"> Item Name: </label>
+                        <textarea 
+                            id="textarea" 
+                            rows="2" 
+                            cols="25"
+                            placeholder="Cement, block, 12mm iron rod..."></textarea> 
+                    </div>
+                    <div>
+                        <button id="send-quotation"><i class="fa-solid fa-arrow-up"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation menu section -->
+    <nav class="menu">
+        <div class="menu-items">
+            <div class="item">
+                <a href="index.html"> <i class="fa-solid fa-house"></i> </a>
+            </div>
+            <h5> Home </h5>
+        </div>
+        <div class="menu-items">
+            <div class="item">
+                <a href="new bill.html"> <i class="fa-solid fa-pen-to-square"></i> </a>
+            </div>
+            <h5> Create bill </h5>
+        </div>
+        <div class="menu-items">
+            <div class="item">
+                <a href="saved bill.html"> <i class="fa-solid fa-file-lines"></i> </a>
+            </div>
+            <h5> Saved bill </h5>
+        </div>
+        <div class="menu-items">
+            <div class="item">
+                <a href="conversion.html"> <i class="fa-duotone fa-solid fa-calculator"></i> </a>
+            </div>
+            <h5> Convert </h5>
+        </div>
+    </nav>
+</div>
+    <!-- js script -->
+    <script src="new bill.js"></script>
+</body>
+</html>

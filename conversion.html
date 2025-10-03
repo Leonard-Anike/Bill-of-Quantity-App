@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Metric Converter </title>
+    <!-- css styling -->
+    <link rel="stylesheet" href="conversion.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&
+    family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <h1> Metric Unit Conversion </h1>
+
+    <!-- Here is for input and display units where converted digits are displayed  -->
+    <main>
+        <div class="conversion-group">
+            <input type="number" id="input" placeholder="Value to convert"/>
+            <button id="conversion-btn"> Convert </button>
+        </div>
+        <div class="display-container">
+            <div class="display-box">
+                <label for="display-metre"> Metre: </label>
+                <input type="text" id="display-metre" class="display-metre" readonly/>
+            </div>
+            <div class="display-box">
+                <label for="display-feet"> Feet: </label>
+                <input type="text" id="display-feet" readonly/>
+            </div>
+        </div>
+    </main>
+
+    <!-- This is for navigation menu section -->
+    <nav class="menu">
+            <div class="menu-items">
+                <div class="item">
+                    <a href="index.html"> <i class="fa-solid fa-house"></i> </a>
+                </div>
+                <h5> Home </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="new bill.html"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                </div>
+                <h5> Create quote </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="saved bill.html"> <i class="fa-solid fa-file-lines"></i> </a>
+                </div>
+                <h5> Saved quotes </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="conversion.html"> <i class="fa-duotone fa-solid fa-calculator"></i> </a>
+                </div>
+                <h5> Convert </h5>
+            </div>
+        </nav>
+        
+    <!-- js script -->
+    <script src="conversion.js"></script>
+</body>
+</html>

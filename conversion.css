@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFFFFF;
+    font-family: sans-serif, karla;
+}
+
+/* Header section */
+h1 {
+    font-size: 1.563rem;
+    font-weight: 900;
+    text-align: center;
+    color: #111827;
+    height: clamp(2.5rem, 2.7rem, 3rem );
+    padding-top: 0.12em; 
+    box-shadow: 0 0 0.056em 0 #6c6c72;  
+}
+
+/* Conversion section */
+.conversion-group {
+    display: flex;
+    flex-direction: column;
+    background: #37373D;
+    height: clamp(11rem, 13rem, 14rem);
+
+}
+
+#input {
+    background: #F3F4F6;
+    font-size: 1.25rem;
+    width: 50%;
+    height: clamp(2.5rem, 3rem, 3.5rem);
+    color: #111827;
+    text-align: center;
+    margin: 2.5em auto 0;
+    padding: 0.625rem;  /* 10px */
+    border: none;
+    border-radius: 0.2em;
+}
+
+#conversion-btn {
+    background: #111827;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2em auto;
+    padding: 0.625em 0.938em;
+    border: none;
+    border-radius: 0.625em;
+    color: #FFFFFF;
+    box-shadow: 0 0.063em 0.625em 0.063em #8b8b8f;
+}
+
+::placeholder {
+    font-size: 1rem;
+}
+
+/* Conversion display section */
+.display-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 4.375rem 0;
+}
+
+.display-box {
+    flex: 1;
+    font-size: 1.25rem;
+    padding: 0 1em;
+    margin: 1.5em 0;
+    color: #111827;
+    font-weight: 700;
+}
+
+#display-metre, #display-feet {
+    background: #FFFFFF;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-top: 0.1em;
+    padding: 0.9em 0.5em;
+    width: 100%;
+    color: #111827;
+    border: 1px solid;
+    border-radius: 3.125rem;  /* 50px */
+}
+
+/* Navigation menu section  */
+.menu {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.625em;
+    background: #FFFFFF;
+    padding: 0.45rem 0.625rem 0.3rem;
+    border-radius: 1.563rem 0 1.563rem 0;  /* 25px 0 25px 0 */
+    box-shadow: 0 0.143em 0.286em 0.071em #6c6c72;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-items h5 {
+    text-align: center;
+    color: #111827;
+    margin-top: 0.125em;
+}
+
+.item .fa-solid {
+    color: #111827;
+    font-size: 1.4rem;
+}
+
+.item .fa-solid:hover, 
+.menu-items h5:hover {
+    color: #929191;
+    cursor: pointer;
+}
+
+
+/* Breakpoint */
+
+@media (min-width: 390px) {
+
+    #input {
+        margin: 3em auto 0;
+    }
+}

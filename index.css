@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    font-family: sans-serif, karla;
+}
+
+/* Header section */
+h1 {
+    font-size: 1.3rem;  /* 20px */
+    font-weight: 900;
+    text-align: center;
+    color: #111827;
+    height: clamp(2.5rem, 4.5rem, 7rem );
+    padding: 0.12em 0.08em 0.2em;
+    box-shadow: 0 0 0.056em 0 #6c6c72;   
+}
+
+h1 span {
+    font-size: 1.7rem;  /* 25px */
+}
+
+/* About section */
+.about {
+    font-size: 1.063rem;
+    line-height: 1.4;
+    margin: 0.9em 0.6em 5rem;
+    padding: 0 0.588em;
+    color: #111827;
+}
+
+#about-greeting {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(to bottom, #00695C, #000000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#about-description {
+    margin-top: 0.294em;
+}
+
+#about-developer {
+    border-top: 0.059em solid #6c6c72;
+    padding-top: 0.412em;
+    margin-top: 0.588em;
+}
+
+#about-developer-name {
+    display: block;
+    margin-bottom: 0.494em;
+    font-weight: 800;
+    color: #111827;
+    background: linear-gradient(to bottom, #00695C, #000000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+#about-developer-name1 {
+    background: linear-gradient(to bottom, #00695C, #000000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.emphasis {
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+    margin-top: 1rem;  /* 25px */
+}
+
+#emphasis {
+    font-size: 1rem;
+    font-style: normal;
+    color: blue;
+}
+
+/* Navigation menu section */
+.menu {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.45rem 0.625rem 0.3rem;
+    background: #FFFFFF;
+    border-radius: 1.563rem 0 1.563rem 0;  /* 25px 0 25px 0 */
+    box-shadow: 0 0.143em 0.286em 0.071em #6c6c72;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-items h5 {
+    font-weight: normal;
+    text-align: center;
+    color: #111827;
+    margin-top: 0.125em;
+}
+
+.item .fa-solid {
+    color: #111827;
+    font-size: 1.4rem;
+}
+
+.item .fa-solid:hover, 
+.menu-items h5:hover {
+    color: #929191;
+    cursor: pointer;
+}
+
+/* Breakpoint */
+
+@media (min-width: 390px) {
+    .about {
+        font-size: 1.3rem;
+    }
+
+    #about-developer {
+        padding-top: 1.163rem;
+    } 
+
+    #emphasis {
+        font-size: 1.2rem;
+    }
+}

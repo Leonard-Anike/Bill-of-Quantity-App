@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Bills </title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- styles -->
+    <link rel="stylesheet" href="saved bill.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1> My Saved Bills </h1>
+    </header>
+
+    <div class="view-mode"></div>
+
+    <!-- Navigation menu section -->
+    <nav class="menu">
+            <div class="menu-items">
+                <div class="item">
+                    <a href="index.html"> <i class="fa-solid fa-house"></i> </a>
+                </div>
+                <h5> Home </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="new bill.html"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                </div>
+                <h5> Create bill </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="saved bill.html"> <i class="fa-solid fa-file-lines"></i> </a>
+                </div>
+                <h5> Saved bills </h5>
+            </div>
+            <div class="menu-items">
+                <div class="item">
+                    <a href="conversion.html"> <i class="fa-duotone fa-solid fa-calculator"></i> </a>
+                </div>
+                <h5> Convert </h5>
+            </div>
+        </nav>
+        
+    <!-- js scripts: jspdf, autotable, fonts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="fonts/DejaVuSans-bold-UMD.js"></script>
+    <script src="fonts/DejaVuSans-normal-UMD.js"></script>
+
+    <script src="saved bill.js"></script>
+</body>
+</html>
