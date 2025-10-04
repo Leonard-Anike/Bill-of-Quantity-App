@@ -151,6 +151,7 @@ td {
     display: flex;
     align-items: center;
     color: #1E3A8A;
+    padding-top: 0.625rem;
 }
 
 .total {
@@ -169,7 +170,7 @@ td {
     font-size: 0.781rem;  /* 12.5px */
     font-weight: bold;
     line-height: 1.4;
-    padding: 0.4em 0.257em;
+    padding: 0 0.257em;
     cursor: pointer;
 }
 
@@ -183,7 +184,7 @@ td {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: -0.5rem;  /* -8px */
+    top: 0;
     right: 0;
     background: none;
     color:#d80909;  
