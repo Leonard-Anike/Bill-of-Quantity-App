@@ -74,6 +74,7 @@ checkQuotationArray()
 
 // Function for adding items to the quotationArray if the item doesn't exist
 function addItem() {
+    messageDiv.innerHTML = ""
     const clientName = clientInputName.value.trim()
     const itemName = textArea.value.trim()
     const qtyMatch = itemQuantity.value.match(/\d+(\.\d+)?/)
