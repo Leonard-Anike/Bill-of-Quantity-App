@@ -3,12 +3,13 @@
 // It equally stores the input on a local storage and seesion storage
 
 // Variable declaration
+const messageDiv = document.getElementById("new-bill-message")
+const quotationContainer = document.getElementById("quotation-container")
 const clientInputName = document.getElementById("client-input-name")
 const textArea = document.getElementById("textarea") 
 const itemQuantity = document.getElementById("item-quantity") 
 const unitPrice = document.getElementById("unit-price") 
 const sendBtn = document.getElementById("send-quotation")
-const quotationContainer = document.getElementById("quotation-container")
 let quotationHtml = "" 
 let quotationArray = []
 
@@ -49,6 +50,27 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
 
     })
 
+    // For scrolling the textarea into view when focused
+    textAreas.forEach (textArea => {
+        textArea.addEventListener ("focus", () => { 
+            setTimeout(() => {
+                textArea.scrollIntoView({behavior: "smooth", block: "center"})
+            }, 300)
+        })
+    })
+
+// Display message if there is no item in the quotationArray
+function checkQuotationArray() {
+    if (quotationArray.length === 0) {
+        messageDiv.innerHTML = `
+            <p> No bill of quantity yet!</p>
+            <p id="message2"> Please prepare new bill. </p>
+        `;
+        return;
+    }
+}
+
+checkQuotationArray()
 
 // Function for adding items to the quotationArray if the item doesn't exist
 function addItem() {
@@ -224,7 +246,7 @@ function deleteQuotation() {
     if (!confirm("Are you sure you want to delete this quotation?")) return
     quotationArray = []
     quotationHtml = ""
-    document.querySelector(".quotation-container-text").style.display = "flex"
+    quotationContainer.innerHTML = ""
     sessionStorage.clear()
     clientInputName.value = ""
     itemQuantity.value = ""
@@ -234,6 +256,8 @@ function deleteQuotation() {
     textAreas.forEach(textArea => {
         textArea.style.height = textArea.dataset.minHeight + "px"
     })
+
+    checkQuotationArray()
     renderQuotation()
 }
 

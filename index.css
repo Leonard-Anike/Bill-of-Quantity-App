@@ -101,20 +101,29 @@ h1 span {
     align-items: center;
 }
 
-.menu-items h5 {
-    font-weight: normal;
-    text-align: center;
+.menu-items .fa-solid {
+    font-size: 1.4rem; /* 22.4px */
     color: #111827;
-    margin-top: 0.125em;
 }
 
-.item .fa-solid {
-    color: #111827;
-    font-size: 1.4rem;
+a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    font-size: 0.8rem;
+    text-decoration: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.item .fa-solid:hover, 
-.menu-items h5:hover {
+a span {
+    margin-top: 0.125rem;
+    font-size: 0.8rem;
+}
+
+.menu-items .fa-solid:hover, 
+a:hover {
     color: #929191;
     cursor: pointer;
 }

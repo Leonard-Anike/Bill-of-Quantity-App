@@ -27,14 +27,19 @@ h1 {
 
 /* Saved bill section: letterhead, client name, table */
 
- #message {
+ #saved-bill-message {
     display: block;
-    margin: 35vh auto;
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;  /*20px*/
+    font-size: 1.4rem;  /*20px*/
+    margin: 35vh auto;
     color: #8f8f92;
+}
+
+#saved-bill-message #message2 {
+    font-size: 1.15rem;  /* 14px */
+    margin-top: 0.5rem;
 }
 
 .quotation-container {
@@ -201,21 +206,29 @@ strong {
     align-items: center;
 }
 
-.menu-items h5 {
-    font-size: 0.8rem; /* 12.8px */
-    font-weight: normal;
-    text-align: center;
-    color: #111827;
-    margin-top: 0.125rem; /* 2px */
-}
-
-.item .fa-solid {
+.menu-items .fa-solid {
     font-size: 1.4rem; /* 22.4px */
     color: #111827;
 }
 
-.item .fa-solid:hover, 
-.menu-items h5:hover {
+a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    font-size: 0.8rem;
+    text-decoration: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a span {
+    margin-top: 0.125rem;
+    font-size: 0.8rem;
+}
+
+.menu-items .fa-solid:hover, 
+a:hover {
     color: #929191;
     cursor: pointer;
 }

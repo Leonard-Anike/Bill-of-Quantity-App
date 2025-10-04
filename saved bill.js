@@ -3,7 +3,7 @@
 // It also offers download function for downloading the saved quotation using js auto-table
 
 // Function that displays quotation save
-const messageDiv = document.getElementById("message");
+const messageDiv = document.getElementById("saved-bill-message");
 function displayQuotation() {
     const viewModeContainer = document.querySelector(".view-mode");
     const savedQuotation = JSON.parse(localStorage.getItem("savedQuotationArray")) || [];
@@ -11,7 +11,10 @@ function displayQuotation() {
     viewModeContainer.innerHTML = "";
 
     if (savedQuotation.length === 0) {
-        messageDiv.innerHTML = "<p> No bill of quantity found.</p>";
+        messageDiv.innerHTML = `
+            <p> No bill of quantity found!</p>
+            <p id="message2"> Saved bills will appear here. </p>
+        `;
         return;
     }
 
