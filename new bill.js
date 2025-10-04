@@ -224,7 +224,7 @@ function deleteQuotation() {
     if (!confirm("Are you sure you want to delete this quotation?")) return
     quotationArray = []
     quotationHtml = ""
-    quotationContainer.innerHTML = quotationHtml
+    document.querySelector(".quotation-container-text").style.display = "flex"
     sessionStorage.clear()
     clientInputName.value = ""
     itemQuantity.value = ""

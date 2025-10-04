@@ -3,7 +3,7 @@
 // It also offers download function for downloading the saved quotation using js auto-table
 
 // Function that displays quotation save
-// localStorage.clear()
+const messageDiv = document.getElementById("message");
 function displayQuotation() {
     const viewModeContainer = document.querySelector(".view-mode");
     const savedQuotation = JSON.parse(localStorage.getItem("savedQuotationArray")) || [];
@@ -11,7 +11,7 @@ function displayQuotation() {
     viewModeContainer.innerHTML = "";
 
     if (savedQuotation.length === 0) {
-        viewModeContainer.innerHTML = "<p> No bill of quantity found.</p>";
+        messageDiv.innerHTML = "<p> No bill of quantity found.</p>";
         return;
     }
 
@@ -19,6 +19,9 @@ function displayQuotation() {
     savedQuotation.sort((a, b) => b.savedAt - a.savedAt);
 
     viewModeContainer.innerHTML = savedQuotation.map((item) => {
+        messageDiv.style.display = "none";
+
+        // Formatting date to Nigerian format
         const date = new Date(item.savedAt).toLocaleString();
 
         // This builds table rows
@@ -117,6 +120,9 @@ function deleteQuotation(id) {
         savedQuotations = savedQuotations.filter(item => item.id !== id)
         localStorage.setItem("savedQuotationArray", JSON.stringify(savedQuotations))
         displayQuotation()
+    if (savedQuotations.length === 0) {
+        messageDiv.style.display = "block";
+    }
 }
 
 // Function to download quotation as PDF using js auto-table
@@ -168,7 +174,7 @@ function downloadQuotation(id) {
     doc.text("BILL OF QUANTITY", pageWidth / 2, 68, { align: "center" });
 
     // This splits client name into multiple lines and prints it
-    doc.setFontSize(10);
+    doc.setFontSize(13);
     doc.setTextColor("#359c3a");
     const billDescription = doc.splitTextToSize(`${q.clientName || "N/A"}`, maxWidth );
     doc.text(billDescription, pageWidth / 2, 82, { align: "center" });
@@ -178,7 +184,7 @@ function downloadQuotation(id) {
     if (typeof doc.getTextDimensions === "function") {
         lineHeight = doc.getTextDimensions("Ay").h;
     } else {
-        lineHeight = 10 * 1.15;
+        lineHeight = 13 * 1.15;
     }
 
     // Variable declaration of where table will be printed from vertically after client name

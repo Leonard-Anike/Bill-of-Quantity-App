@@ -21,33 +21,38 @@ h1 {
     font-weight: 900;
     text-align: center;
     color: #111827;
-    height: clamp(2.5rem, 2.7rem, 3rem );
-    padding-top: 0.12em;
+    padding: 0 0.12em 0.15em;
     box-shadow: 0 0 0.056em 0 #6c6c72;
 }
 
 /* Saved bill section: letterhead, client name, table */
 
-#view-mode-text {
+ #message {
+    display: block;
     margin: 35vh auto;
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 8rem);
-    font-size: 1.5rem;  /* 20px */
+    font-size: 1.5rem;  /*20px*/
     color: #8f8f92;
 }
+
 .quotation-container {
+    display: block;
     position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    margin-top: 2.813rem;  /* 45px */
+    margin-top: 38px;  /*8px*/
     background: #FFFFFF;
     box-shadow: 0 0.313rem 0.938rem 0.063rem #6c6c72;
-    margin-bottom: 3.75rem;  /* 60px */
+    margin-bottom: 4rem; 
 }
 
 .letterheader img {
     width: 100%;
+    margin-top: 0rem;
     height: auto;
     display: block;
 }
@@ -60,7 +65,7 @@ h1 {
 
 #client-name {
     margin: 0.313rem 0 0;  /* 5px */
-    font-size: 0.688rem;  /* 11px */
+    font-size: 0.75rem;  /* 12px */
     color: #111827;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -187,7 +192,6 @@ strong {
     padding: 0.45rem 0.625rem 0.313rem; /* 7.2px 10px 5px */
     background: #37373D;
     background: #FFFFFF;
-    border-radius: 1.563rem 0 1.563rem 0;  /* 25px 0 25px 0 */
     box-shadow: 0 0.143em 0.286em 0.071em #6c6c72;
 }
 

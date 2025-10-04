@@ -15,7 +15,6 @@ h1 {
     font-weight: 900;
     text-align: center;
     color: #111827;
-    height: clamp(2.5rem, 4.5rem, 7rem );
     padding: 0.12em 0.08em 0.2em;
     box-shadow: 0 0 0.056em 0 #6c6c72;   
 }
@@ -93,7 +92,6 @@ h1 span {
     width: 100%;
     padding: 0.45rem 0.625rem 0.3rem;
     background: #FFFFFF;
-    border-radius: 1.563rem 0 1.563rem 0;  /* 25px 0 25px 0 */
     box-shadow: 0 0.143em 0.286em 0.071em #6c6c72;
 }
 
