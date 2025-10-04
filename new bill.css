@@ -58,8 +58,7 @@ h1 {
     display: flex;
     font-size: 0.781rem;  /* 12.5px */
     font-weight: bold;
-    margin: 1.5em 0.938rem 0;
-    padding: 0.833em 0 0.556em;
+    margin: 1.5rem 0.938rem 0.35rem;  /* 24px 15px 5.6px */
     color: #111827;
     word-wrap: break-word;
     overflow-wrap: break-word;
