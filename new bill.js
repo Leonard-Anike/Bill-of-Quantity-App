@@ -199,15 +199,23 @@ function updateTable() {
     checkQuotationArray()
     addItem()
     renderQuotation()
+    itemQuantity.value = ""
+    unitPrice.value = ""
+    textArea.value = ""
 }
 
 // Function that deletes the row selected
 function deleteRow(index) {
-    if (!confirm("Are you sure you want to delete this item?")) return
-    quotationArray.splice(index, 1)
-    messageDiv.innerHTML = " "
-    checkQuotationArray()
-    renderQuotation()
+    if (quotationArray.length === 1) {
+        deleteQuotation()
+        return
+    } else {
+        if (!confirm("Are you sure you want to delete this item?")) return
+            quotationArray.splice(index, 1)
+            messageDiv.innerHTML = " "
+            checkQuotationArray()
+            renderQuotation()
+    }
 }
 
 // This takes the inputs value and saves them in the session sessionStorage
