@@ -52,23 +52,20 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
         })
 
         textArea.addEventListener("focus", () => { 
-            const isInView = elementInViewport(textArea)
-
-            if (!isInView) {
-                let scrolled = false
-
-                const scrollToView = () => {
-                    textArea.scrollIntoView({ behavior: "smooth", block: "center" })
-                    scrolled = true
-                }
-                requestAnimationFrame(scrollToView)
-
+        
+            setTimeout(() => {
+                if (!elementInViewport(textArea)) {
+                    requestAnimationFrame(() => {
+                        textArea.scrollIntoView({ behavior: "smooth", block: "center" })
+                    })
+        
                 // Fallback in case the scrollIntoView doesn't work
-                setTimeout(() => {
-                    const y = textArea.getBoundingClientRect().top + window.scrollY - 100
-                    window.scrollTo({ top: y, behavior: "smooth" })
-                }, 400)
-            }
+                    setTimeout(() => {
+                        const y = textArea.getBoundingClientRect().top + window.scrollY - 100
+                        window.scrollTo({ top: y, behavior: "smooth" })
+                    }, 400)
+                }
+            }, 300)
         })
     })
 
