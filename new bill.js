@@ -43,28 +43,42 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
         const minHeight = parseFloat(getComputedStyle(textArea).minHeight) || textArea.offsetHeight
         textArea.dataset.minHeight = minHeight
 
+        // Auto-resize the textarea
         textArea.addEventListener("input", () => {
 
             textArea.style.height = minHeight + "px"
             const newHeight = Math.min(textArea.scrollHeight, 50)
             textArea.style.height = Math.max(newHeight,minHeight) + "px"
-
         })
 
+        textArea.addEventListener("focus", () => { 
+            let scrolled = false
+
+            const scrollToView = () => {
+                textArea.scrollIntoView({ behavior: "smooth", block: "center" })
+                scrolled = true
+            }
+
+            requestAnimationFrame(scrollToView)
+
+            setTimeout(() => {
+                if (!scrolled) scrollToView()
+                }, 300)
+        })
     })
 
     // For scrolling the textarea into view when focused
-    textAreas.forEach (textArea => {
-        textArea.addEventListener ("focus", () => { 
-            requestAnimationFrame(() => {
-                textArea.scrollIntoView({
-                    behavior: "smooth", 
-                    block: "center", 
-                    inline: "nearest"
-                })
-            })
-        })
-    })
+    // textAreas.forEach (textArea => {
+    //     textArea.addEventListener ("focus", () => { 
+    //         requestAnimationFrame(() => {
+    //             textArea.scrollIntoView({
+    //                 behavior: "smooth", 
+    //                 block: "center", 
+    //                 inline: "nearest"
+    //             })
+    //         })
+    //     })
+    // })
 
 // Display message if there is no item in the quotationArray
 function checkQuotationArray() {
