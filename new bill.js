@@ -43,46 +43,24 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
         const minHeight = parseFloat(getComputedStyle(textArea).minHeight) || textArea.offsetHeight
         textArea.dataset.minHeight = minHeight
 
-        // Auto-resize the textarea
         textArea.addEventListener("input", () => {
 
             textArea.style.height = minHeight + "px"
             const newHeight = Math.min(textArea.scrollHeight, 50)
             textArea.style.height = Math.max(newHeight,minHeight) + "px"
+
         })
 
-        textArea.addEventListener("focus", () => { 
-        
+    })
+
+    // For scrolling the textarea into view when focused
+    textAreas.forEach (textArea => {
+        textArea.addEventListener ("focus", () => { 
             setTimeout(() => {
-                if (!elementInViewport(textArea)) {
-                    requestAnimationFrame(() => {
-                        textArea.scrollIntoView({ behavior: "smooth", block: "center" })
-                    })
-        
-                // Fallback in case the scrollIntoView doesn't work
-                    setTimeout(() => {
-                        const y = textArea.getBoundingClientRect().top + window.scrollY - 100
-                        window.scrollTo({ top: y, behavior: "smooth" })
-                    }, 400)
-                }
+                textArea.scrollIntoView({behavior: "smooth", block: "center"})
             }, 300)
         })
     })
-
-// Function to check if the element is in the viewport
-function elementInViewport(el) {
-    const rect = el.getBoundingClientRect()
-    const windowHeight = (window.innerHeight || document.documentElement.clientHeight)
-    const windowWidth = (window.innerWidth || document.documentElement.clientWidth)
-    //
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= windowHeight &&
-        rect.right <= windowWidth
-    )
-}
-
 
 // Display message if there is no item in the quotationArray
 function checkQuotationArray() {
@@ -289,11 +267,10 @@ function deleteQuotation() {
     itemQuantity.value = ""
     unitPrice.value = ""
     textArea.value = ""
-
+    
     textAreas.forEach(textArea => {
         textArea.style.height = textArea.dataset.minHeight + "px"
     })
-
     checkQuotationArray()
     renderQuotation()
 }
