@@ -15,8 +15,8 @@ h1 {
     font-weight: 900;
     text-align: center;
     color: #111827;
-    padding: 0.12em 0.08em 0.2em;
-    box-shadow: 0 0 0.056em 0 #6c6c72;   
+    padding: 0.4rem 0.12rem; 
+    box-shadow: 0 0 0.096rem 0 #6c6c72;   
 }
 
 h1 span {

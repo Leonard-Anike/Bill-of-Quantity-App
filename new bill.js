@@ -9,7 +9,7 @@ const clientInputName = document.getElementById("client-input-name")
 const textArea = document.getElementById("textarea") 
 const itemQuantity = document.getElementById("item-quantity") 
 const unitPrice = document.getElementById("unit-price") 
-const sendBtn = document.getElementById("send-quotation")
+// const sendBtn = document.getElementById("send-quotation")
 let quotationHtml = "" 
 let quotationArray = []
 
@@ -21,6 +21,9 @@ document.addEventListener("click", function(e){
         deleteRow(index)
         }
     } 
+    if (e.target.closest("#send-quotation")) {
+        updateTable()
+    }
 
     if (e.target.closest("#save-quotation")) {
         saveQuotation()
@@ -53,19 +56,27 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
     // For scrolling the textarea into view when focused
     textAreas.forEach (textArea => {
         textArea.addEventListener ("focus", () => { 
-            setTimeout(() => {
-                textArea.scrollIntoView({behavior: "smooth", block: "center"})
-            }, 300)
+            requestAnimationFrame(() => {
+                textArea.scrollIntoView({
+                    behavior: "smooth", 
+                    block: "center", 
+                    inline: "nearest"
+                })
+            })
         })
     })
 
 // Display message if there is no item in the quotationArray
 function checkQuotationArray() {
     if (quotationArray.length === 0) {
+        messageDiv.style.display = "block"
         messageDiv.innerHTML = `
             <p> No bill of quantity yet!</p>
             <p id="message2"> Please prepare new bill. </p>
         `;
+        return;
+    } else if (quotationArray.length !== 0) {
+        messageDiv.innerHTML = "";
         return;
     }
 }
@@ -74,7 +85,6 @@ checkQuotationArray()
 
 // Function for adding items to the quotationArray if the item doesn't exist
 function addItem() {
-    messageDiv.innerHTML = ""
     const clientName = clientInputName.value.trim()
     const itemName = textArea.value.trim()
     const qtyMatch = itemQuantity.value.match(/\d+(\.\d+)?/)
@@ -91,6 +101,7 @@ function addItem() {
             unitPrice: price,
             itemTotalPrice: qtyMatchReturned * price
         })
+        checkQuotationArray()
         renderQuotation()
     }
 }
@@ -165,13 +176,19 @@ function getQuotation() {
     return quotationHtml
 }
 
-// Eventlistener that updates the table each time new row is to the added
-sendBtn.addEventListener("click", addItem)
+// Function that updates the table each time new row is to be added
+function updateTable() {
+    checkQuotationArray()
+    addItem()
+    renderQuotation()
+}
 
 // Function that deletes the row selected
 function deleteRow(index) {
     if (!confirm("Are you sure you want to delete this item?")) return
     quotationArray.splice(index, 1)
+    messageDiv.innerHTML = " "
+    checkQuotationArray()
     renderQuotation()
 }
 
@@ -187,6 +204,7 @@ window.addEventListener ("load", function() {
     const savedArray = sessionStorage.getItem("quotationArray")
     if (savedArray){
         quotationArray = JSON.parse(savedArray)
+        checkQuotationArray()
         renderQuotation()
     }
 
