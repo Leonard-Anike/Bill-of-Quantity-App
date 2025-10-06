@@ -49,10 +49,9 @@ h1 {
     left: 0;
     right: 0;
     width: 100%;
-    margin-top: 38px;  /*8px*/
+    margin: 4.2rem 0 4rem;  /*60px 0 64px*/
     background: #FFFFFF;
-    box-shadow: 0 0.313rem 0.938rem 0.063rem #6c6c72;
-    margin-bottom: 4rem; 
+    box-shadow: 0 0.313rem 0.938rem 0.063rem #6c6c72; 
 }
 
 .letterheader img {

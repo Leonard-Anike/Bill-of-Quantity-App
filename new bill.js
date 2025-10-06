@@ -65,8 +65,9 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
 
                 // Fallback in case the scrollIntoView doesn't work
                 setTimeout(() => {
-                    if (!scrolled) scrollToView()
-                }, 300)
+                    const y = textArea.getBoundingClientRect().top + window.scrollY - 100
+                    window.scrollTo({ top: y, behavior: "smooth" })
+                }, 400)
             }
         })
     })
