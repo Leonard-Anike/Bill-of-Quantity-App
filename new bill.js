@@ -52,33 +52,39 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
         })
 
         textArea.addEventListener("focus", () => { 
-            let scrolled = false
+            const isInView = elementInViewport(textArea)
 
-            const scrollToView = () => {
-                textArea.scrollIntoView({ behavior: "smooth", block: "center" })
-                scrolled = true
-            }
+            if (!isInView) {
+                let scrolled = false
 
-            requestAnimationFrame(scrollToView)
+                const scrollToView = () => {
+                    textArea.scrollIntoView({ behavior: "smooth", block: "center" })
+                    scrolled = true
+                }
+                requestAnimationFrame(scrollToView)
 
-            setTimeout(() => {
-                if (!scrolled) scrollToView()
+                // Fallback in case the scrollIntoView doesn't work
+                setTimeout(() => {
+                    if (!scrolled) scrollToView()
                 }, 300)
+            }
         })
     })
 
-    // For scrolling the textarea into view when focused
-    // textAreas.forEach (textArea => {
-    //     textArea.addEventListener ("focus", () => { 
-    //         requestAnimationFrame(() => {
-    //             textArea.scrollIntoView({
-    //                 behavior: "smooth", 
-    //                 block: "center", 
-    //                 inline: "nearest"
-    //             })
-    //         })
-    //     })
-    // })
+// Function to check if the element is in the viewport
+function elementInViewport(el) {
+    const rect = el.getBoundingClientRect()
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight)
+    const windowWidth = (window.innerWidth || document.documentElement.clientWidth)
+    //
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= windowHeight &&
+        rect.right <= windowWidth
+    )
+}
+
 
 // Display message if there is no item in the quotationArray
 function checkQuotationArray() {
