@@ -51,16 +51,38 @@ const textAreas = document.querySelectorAll ("#textarea, #client-input-name")
 
         })
 
-    })
-
-    // For scrolling the textarea into view when focused
-    textAreas.forEach (textArea => {
-        textArea.addEventListener ("focus", () => { 
+    // Scroll the textarea into view when focused, if not already fully visible
+        textArea.addEventListener("focus", () => { 
+        
             setTimeout(() => {
-                textArea.scrollIntoView({behavior: "smooth", block: "center"})
+                if (!elementInViewport(textArea)) {
+                    requestAnimationFrame(() => {
+                        textArea.scrollIntoView({ behavior: "smooth", block: "center" })
+                    })
+        
+                // Fallback in case the scrollIntoView doesn't work
+                    setTimeout(() => {
+                        const y = textArea.getBoundingClientRect().top + window.scrollY - 100
+                        window.scrollTo({ top: y, behavior: "smooth" })
+                    }, 400)
+                }
             }, 300)
         })
     })
+
+// Function to check if the element is in the viewport
+function elementInViewport(el) {
+    const rect = el.getBoundingClientRect()
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight)
+    const windowWidth = (window.innerWidth || document.documentElement.clientWidth)
+    //
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= windowHeight &&
+        rect.right <= windowWidth
+    )
+}
 
 // Display message if there is no item in the quotationArray
 function checkQuotationArray() {
