@@ -148,7 +148,7 @@ function downloadQuotation(id) {
     let img = new Image();
     img.src = "image/NNAMENE LH.jpg";
     img.onload = function () {
-    // This adds image at top (x=0, y=0, width=210)
+    // This adds image at top (x=0, y=0, PDFWidth=210, imageWidth=50)
     doc.addImage(img, "JPEG", 0, 0, 210, 50);
 
     // This defines max width (pageWidth - margins)
@@ -159,6 +159,7 @@ function downloadQuotation(id) {
     // This prints Date in Nigerian format at top right
     doc.setFontSize(11);
     doc.setTextColor("#000000");
+    // Function to format date as "DD Month, YYYY"
     function formatDate (dateInput) {
         const date = new Date(dateInput);
         
@@ -191,7 +192,7 @@ function downloadQuotation(id) {
     }
 
     // Variable declaration of where table will be printed from vertically after client name
-    let nextY = 82 + billDescription.length * lineHeight + 8;
+    let nextY = 82 + billDescription.length * lineHeight + 3;
 
     // Table data
     const tableData = q.quotation.map((item, index) => [
@@ -205,7 +206,7 @@ function downloadQuotation(id) {
     // This prints the table
     doc.autoTable({
         startY: nextY,
-        head: [["S/N", "Item", "Qantity", "Unit Price (#)", "Total Price (#)"]],
+        head: [["S/N", "Item", "Quantity", "Unit Price (#)", "Total Price (#)"]],
         body: tableData,
         theme: "grid",
         styles: { 

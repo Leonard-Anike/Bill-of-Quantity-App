@@ -174,6 +174,7 @@ function getQuotation() {
     // looping through the array to get the total quantity
     quotationArray.forEach((item) => {
         const newQuantity = item.qtyMatchReturned
+            
             totalQuantity += newQuantity
     })
 
