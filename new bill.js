@@ -106,18 +106,21 @@ function addItem() {
     const clientName = clientInputName.value.trim()
     const itemName = textArea.value.trim()
     const qtyMatch = itemQuantity.value.match(/\d+(\.\d+)?/)
-    const qtyMatchReturned = qtyMatch ? parseFloat(qtyMatch[0]) : 1
+    const qtyMatchReturned = qtyMatch ? parseFloat(qtyMatch[0]) : 0
+    const newQtyMatchReturned = qtyMatchReturned == 0 ? 1 : qtyMatchReturned
     const qty = itemQuantity.value
     const price = parseFloat(unitPrice.value)
 
+    // Validating the inputs before adding to the array
     if (clientName && itemName && !isNaN(price)) {
         quotationArray.push ({
             clientName : clientName,
             itemName: itemName,
             qty: qty,
             qtyMatchReturned: qtyMatchReturned,
+            newQtyMatchReturned: newQtyMatchReturned,
             unitPrice: price,
-            itemTotalPrice: qtyMatchReturned * price
+            itemTotalPrice: newQtyMatchReturned * price
         })
         checkQuotationArray()
         renderQuotation()
@@ -174,7 +177,6 @@ function getQuotation() {
     // looping through the array to get the total quantity
     quotationArray.forEach((item) => {
         const newQuantity = item.qtyMatchReturned
-            
             totalQuantity += newQuantity
     })
 
